@@ -8,7 +8,7 @@ Ucesnici u izradi porjekata :
     
         Igor Kostin ( 2019270544 ) - 
 
-        Ivan Pecikoza (  ) - 
+        Ivan Pecikoza ( 2019270473 ) - 
 
 Uputsvo za pokretanje aplikacije :
 
