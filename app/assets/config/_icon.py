@@ -17,7 +17,7 @@ import os
 # `assets.config.settings` kao kreinrana variabala `icon`
 class _Icon:
     def __init__(self, icon_path: str):
-        self.path = f"assets{os.path.sep}img{os.path.sep}{icon_path}"
+        self.path = f"app{os.path.sep}assets{os.path.sep}img{os.path.sep}{icon_path}"
 
     def SAVE_I(self) -> str:
         return f"{self.path}icons8-save-32.png"

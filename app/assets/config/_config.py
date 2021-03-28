@@ -8,7 +8,7 @@ import os
 class _Config:
     def __init__(self):
         self.config = None
-        self._config_path = f"assets{os.path.sep}config{os.path.sep}data{os.path.sep}config.json"
+        self._config_path = f"app{os.path.sep}assets{os.path.sep}config{os.path.sep}data{os.path.sep}config.json"
         # putanja do samog fajla u kojem se nalaze informacje vezane za confoiguraciju programa
         self._load_config()
 
@@ -19,6 +19,7 @@ class _Config:
             config_file.close()
 
         except IOError:
+            # TODO :
             pass
 
     def get_icon_config(self) -> str:
