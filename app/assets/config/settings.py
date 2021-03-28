@@ -1,7 +1,5 @@
-from mysql.connector import pooling
-
-from assets.config._config import _Config
-from assets.config._icon import _Icon
+from app.assets.config._config import _Config
+from app.assets.config._icon import _Icon
 from cache.server.mysql_server_connections import MysqlServerConnections
 from dataHandler.mySql.connection import make_pool_party
 
