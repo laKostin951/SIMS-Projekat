@@ -4,12 +4,15 @@ from app.UI.component.menuBar import MenuBar
 from app.UI.component.statusBar import StatusBar
 from app.UI.component.structureDock import StructureDock
 from app.UI.component.toolBar import ToolBar
+from app.assets.style import STYLES
 
 
 class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self):
         super().__init__()
+
+        self.setStyleSheet(STYLES.filter_line_edit)
 
         self.resize(600, 480)
         self.setWindowTitle("Editor generickih podataka")

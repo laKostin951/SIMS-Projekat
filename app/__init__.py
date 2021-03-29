@@ -10,7 +10,7 @@ from app.assets.config.settings import icon
 def create_app():
     app = QtWidgets.QApplication(sys.argv)
 
-    mainWindow = MainWindow()
+    x = MainWindow()
     app.setStyleSheet("QCheckBox::indicator {"
                       " border : none;}"
                       "QCheckBox::indicator:checked {"

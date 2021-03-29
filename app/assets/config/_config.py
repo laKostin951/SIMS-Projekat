@@ -30,5 +30,5 @@ class _Config:
     def get_default_data_path(self) -> str:
         # Dobavlja putanju za `default` folder u kojem su smesteni podaci za rad u softveru
         # `Default` folder je smesten  u fajlu `assets/config/data/config.json` pod ['data']['default_folder']
-        return os.getcwd() + os.path.sep + self.config["data"]["default_folder"]
+        return os.getcwd() + os.path.sep + 'app' + os.path.sep + self.config["data"]["default_folder"]
 
