@@ -1,11 +1,12 @@
 from PySide2 import QtWidgets
-from PySide2.QtCore import QSize
 from PySide2.QtGui import QIcon
 from PySide2.QtPrintSupport import QPrinter, QPrintPreviewDialog
-from PySide2.QtWidgets import QAction, QPushButton, QFileDialog
+from PySide2.QtWidgets import QAction, QFileDialog
 
 from app.assets.config.settings import icon
-#from app.component.extra_window import ExtraWindow
+
+
+# from app.component.extra_window import ExtraWindow
 
 
 class ToolBar(QtWidgets.QToolBar):
@@ -32,11 +33,14 @@ class ToolBar(QtWidgets.QToolBar):
 
     def open_new_table_dialog(self):
         pass
-        #extra_window = ExtraWindow(self)
+        # extra_window = ExtraWindow(self)
 
     def open_dialog_box(self, file_path):
-        filename = QFileDialog.getOpenFileName()
-        self.parent().workspace.open_file(filename[0])
+        filename = QFileDialog.getOpenFileName(self, "Open File",
+                                               "/home",
+                                               "CSV File (*.csv)")
+        print(filename[0])
+        # self.parent().workspace.open_file(filename[0])
 
     def print_preview_dialog(self):
         printer = QPrinter(QPrinter.HighResolution)

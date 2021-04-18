@@ -141,3 +141,6 @@ class _Icon:
 
     def EXPORT_CSV_I(self) -> str:
         return f"{self.path}icons8-export-csv-32.png"
+
+    def CLEAR_SYMBOL_I(self) -> str:
+        return f"{self.path}icons8-clear-symbol-32.png"

@@ -2,3 +2,5 @@
 /app/data/
 /.idea/
 .gitignore
+/test/
+/astah-model/

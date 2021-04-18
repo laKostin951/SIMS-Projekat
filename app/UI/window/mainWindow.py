@@ -4,6 +4,7 @@ from app.UI.component.menuBar import MenuBar
 from app.UI.component.statusBar import StatusBar
 from app.UI.component.structureDock import StructureDock
 from app.UI.component.toolBar import ToolBar
+from app.UI.component.workspace.mainWorkSpace import MainWorkspace
 from app.assets.style import STYLES
 
 
@@ -23,7 +24,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.structure_dock = StructureDock("Structure dock", self)
 
-        # self.workspace = WorkspaceWidget(self, self.status_bar, self.structure_dock)
+        self.main_workspace = MainWorkspace(self)
 
         self.menu_bar = MenuBar(self)
         self.setMenuBar(self.menu_bar)
@@ -31,13 +32,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.toggle_structure_dock_action = self.structure_dock.toggleViewAction()
         self.menu_bar.view_menu.addAction(self.toggle_structure_dock_action)
 
-        #self.structure_dock.clicked.connect(self.workspace.open_file)
+        self.structure_dock.clicked.connect(self.main_workspace.open_file)
         #self.structure_dock.sql_clicked.connect(self.workspace.open_file)
 
         self.tool_bar = ToolBar()
         self.addToolBar(self.tool_bar)
 
         self.addDockWidget(QtCore.Qt.LeftDockWidgetArea, self.structure_dock)
-        #self.setCentralWidget(self.workspace)
+        self.setCentralWidget(self.main_workspace)
 
         self.show()

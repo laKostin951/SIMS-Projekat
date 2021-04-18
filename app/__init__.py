@@ -3,7 +3,6 @@ import sys
 from PySide2 import QtWidgets
 
 from app.UI.window.mainWindow import MainWindow
-
 from app.assets.config.settings import icon
 
 

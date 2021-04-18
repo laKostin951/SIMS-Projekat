@@ -1,35 +1,4 @@
-import sys
-from PySide2 import QtCore, QtGui, QtWidgets
-from PySide2.QtCore import Qt
 
-
-class TableModel(QtCore.QAbstractTableModel):
-    def __init__(self, data):
-        super(TableModel, self).__init__()
-        self._data = data
-
-    def data(self, index, role):
-        if not index.isValid():
-            return None
-        #QModelIndex index = model->index(row, column, parent);
-        if role == Qt.DisplayRole:
-            return self._data[index.row()][index.column()]
-
-    def setData(self, index, value, role = QtCore.Qt.EditRole):
-        if not index.isValid():
-            return value
-        
-
-    def headerData(self, section, orientation, role):                   # trebace kad bude bio drugi window koji pokazuje povezane elemente
-        if role == QtCore.Qt.DisplayRole:
-            if orientation == QtCore.Qt.Horizontal:
-                return None                                             #self._data._headers_shotList[section]
-
-    def rowCount(self, index):
-        return len(self._data)
-
-    def columnCount(self, index):
-        return len(self._data[0])
 
 
 class MainWindow(QtWidgets.QMainWindow):

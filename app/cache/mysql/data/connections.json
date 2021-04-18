@@ -1,0 +1,21 @@
+[
+  {
+    "connection_type": "Mysql local server",
+    "connection_name": "Root",
+    "database": "School",
+    "user": "root"
+  },
+  {
+    "connection_type-type": "Mysql local server",
+    "connection_name": "Igor Kostin",
+    "database": "School",
+    "user": "root"
+  },
+  {
+    "connection_type-type": "Mysql local server",
+    "connection_name": "Ivan Pecikoza",
+    "database": "School",
+    "user": "root",
+    "x" : {  }
+  }
+]
