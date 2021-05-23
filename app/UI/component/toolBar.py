@@ -8,7 +8,6 @@ from app import config
 
 def _createToolBars(self):
         fileToolBar = self.addToolBar("File")
-        fileToolBar.addAction(self.addFileActionAction)
         fileToolBar.addAction(self.copyAction)
         fileToolBar.addAction(self.saveAction)
         fileToolBar.addAction(self.deleteAction)
@@ -36,7 +35,9 @@ def _createActions(self):
 
 #def _connectActions(self):
     #self.saveAction.triggered.connect(save)        treba povezati
+    
 def __init__(self, parent=None):
         self._createActions()
         self._createMenuBar()
         self._createToolBars()
+        #self._connectActinos()
