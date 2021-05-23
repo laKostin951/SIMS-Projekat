@@ -1,53 +1,42 @@
 from PySide2 import QtWidgets
 from PySide2.QtGui import QIcon
 from PySide2.QtPrintSupport import QPrinter, QPrintPreviewDialog
-from PySide2.QtWidgets import QAction, QFileDialog
+from PySide2.QtWidgets import QAction, QFileDialog, QMenu, QToolBar, QIcon
 
-from app.assets.config.settings import icon
+from app import icon
+from app import config
 
+def _createToolBars(self):
+        fileToolBar = self.addToolBar("File")
+        fileToolBar.addAction(self.addFileActionAction)
+        fileToolBar.addAction(self.copyAction)
+        fileToolBar.addAction(self.saveAction)
+        fileToolBar.addAction(self.deleteAction)
+        #editToolBar = QToolBar("Edit", self)                
+        #self.addToolBar(editToolBar)                        ako zatreba
+        #helpToolBar = QToolBar("Help", self)                
+        #self.addToolBar(Qt.LeftToolBarArea, helpToolBar)
 
-# from app.component.extra_window import ExtraWindow
+def _createMenuBar(self):
+        menuBar = self.menuBar()
+        fileMenu = QMenu("&File", self)
+        menuBar.addMenu(fileMenu)
+        fileMenu.addAction(self.addFileAction)
+        fileMenu.addAction(self.saveAction)
+        fileMenu.addAction(self.copyAction)
+        fileMenu.addAction(self.deleteAction)
+        editMenu = menuBar.addMenu("&Edit")
 
+def _createActions(self):
+    #self.QAction(icon, text, parent)       <- sablon za pravljenje klasa
+    self.saveAction(QIcon(SAVE_I()),"&Save", self)
+    self.addFileAction(QIcon(ADDFILE_I()),"&AddFIle", self)
+    self.copyAction(QIcon(COPY_I()),"&Copy", self)
+    self.deleteAction(QIcon(DELETE_I()),"&Delete", self)
 
-class ToolBar(QtWidgets.QToolBar):
-    def __init__(self):
-        super().__init__()
-
-        self.newAction = QAction(QIcon(icon.ADD_FILE_I()), "&New", self)
-        self.openAction = QAction(QIcon(icon.FOLDER_I()), "&Open", self)
-        self.printAction = QAction(QIcon(icon.PRINT_I()), "&Print", self)
-
-        self.addAction(self.newAction)
-        self.addAction(self.openAction)
-        self.addAction(self.printAction)
-
-        self.addSeparator()
-
-        self.newAction.setStatusTip('New file')
-        self.openAction.setStatusTip('Open file')
-        self.printAction.setStatusTip('Print file')
-
-        self.newAction.triggered.connect(self.open_new_table_dialog)
-        self.openAction.triggered.connect(self.open_dialog_box)
-        self.printAction.triggered.connect(self.print_preview_dialog)
-
-    def open_new_table_dialog(self):
-        pass
-        # extra_window = ExtraWindow(self)
-
-    def open_dialog_box(self, file_path):
-        filename = QFileDialog.getOpenFileName(self, "Open File",
-                                               "/home",
-                                               "CSV File (*.csv)")
-        print(filename[0])
-        # self.parent().workspace.open_file(filename[0])
-
-    def print_preview_dialog(self):
-        printer = QPrinter(QPrinter.HighResolution)
-        previewDialog = QPrintPreviewDialog(printer, self)
-
-        previewDialog.paintRequested.connect(self.print_preview)
-        previewDialog.exec_()
-
-    def print_preview(self, printer):
-        self.textEdit.print_(printer)
+#def _connectActions(self):
+    #self.saveAction.triggered.connect(save)        treba povezati
+def __init__(self, parent=None):
+        self._createActions()
+        self._createMenuBar()
+        self._createToolBars()
