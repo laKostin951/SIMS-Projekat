@@ -1,0 +1,116 @@
+@startuml
+skinparam classAttributeIconSize 0
+!pragma useNewPackage
+
+class Registracija_korisnika <<requirement>> {
+}
+Registracija_korisnika .up...> Funkcionalnost::Rukovanje_tipovima_informacionih_resursa
+
+class Graficki_intefejs <<requirement>> {
+}
+Graficki_intefejs .up...> Logovanje_korisnika
+Graficki_intefejs .up...> Registracija_korisnika
+
+class Logovanje_korisnika <<requirement>> {
+}
+Logovanje_korisnika .up...> Registracija_korisnika
+Logovanje_korisnika .up...> Funkcionalnost::Rukovanje_tipovima_informacionih_resursa
+
+class Requirement0 <<requirement>> {
+}
+
+package Funkcionalnost {
+  class Preuzimanje_razlicitih_tipova_informacionih_resursa <<requirement>> {
+  }
+  
+  class Mogucnost_sortiranja <<requirement>> {
+  }
+  
+  class Cross_platform <<requirement>> {
+  }
+  
+  class Sistemski_sat <<actor>> {
+  }
+  
+  class Administracija_pristupa_informacionih_resursa <<requirement>> {
+  }
+  Administracija_pristupa_informacionih_resursa .up...> Registracija_korisnika
+  Administracija_pristupa_informacionih_resursa .up...> Logovanje_korisnika
+  Administracija_pristupa_informacionih_resursa .up...> Logovanje_korisnika
+  Administracija_pristupa_informacionih_resursa .up...> Logovanje_korisnika
+  Administracija_pristupa_informacionih_resursa .up...> Logovanje_korisnika
+  
+  class Spustanje_aplikacije <<requirement>> {
+  }
+  
+  class Rukovanje_pojedinacnim_informacionim_resursom <<requirement>> {
+  }
+  
+  class Prekid_rada <<requirement>> {
+  }
+  
+  class Izmene_i_brisanje_razlicitih_tipova_informacionih_resursa <<requirement>> {
+  }
+  Izmene_i_brisanje_razlicitih_tipova_informacionih_resursa .up...> Funkcionalnost::Kreiranje_razlicitih_tipova_informacionih_resursa
+  Izmene_i_brisanje_razlicitih_tipova_informacionih_resursa .up...> Funkcionalnost::Kreiranje_razlicitih_tipova_informacionih_resursa
+  Izmene_i_brisanje_razlicitih_tipova_informacionih_resursa .up...> Funkcionalnost::Preuzimanje_razlicitih_tipova_informacionih_resursa
+  Izmene_i_brisanje_razlicitih_tipova_informacionih_resursa .up...> Funkcionalnost::Pretraga_razlicitih_tipova_informacionih_resursa
+  
+  class Pokretanje <<requirement>> {
+  }
+  Pokretanje .up...> Graficki_intefejs
+  Pokretanje .up...> Funkcionalnost::Prekid_rada
+  Pokretanje .up...> Funkcionalnost::Spustanje_aplikacije
+  
+  class Kreiranje_razlicitih_tipova_informacionih_resursa <<requirement>> {
+  }
+  Kreiranje_razlicitih_tipova_informacionih_resursa .up...> Funkcionalnost::Izmene_i_brisanje_razlicitih_tipova_informacionih_resursa
+  
+  class Rukovalac_informacionih_resursa {
+  }
+  class Cuvanje_stanja {
+  }
+  Rukovalac_informacionih_resursa +-right- Funkcionalnost::Rukovalac_informacionih_resursa::Cuvanje_stanja
+  class Kreiranje_informacionih_resursa {
+  }
+  Rukovalac_informacionih_resursa +-right- Funkcionalnost::Rukovalac_informacionih_resursa::Kreiranje_informacionih_resursa
+  class Izmena_informacionih_resursa {
+  }
+  Rukovalac_informacionih_resursa +-right- Funkcionalnost::Rukovalac_informacionih_resursa::Izmena_informacionih_resursa
+  class Pregled_pojedinacnih_informacionih_resursa {
+  }
+  Rukovalac_informacionih_resursa +-right- Funkcionalnost::Rukovalac_informacionih_resursa::Pregled_pojedinacnih_informacionih_resursa
+  class Pregled_povezanih_informacionih_resursa {
+  }
+  Rukovalac_informacionih_resursa +-right- Funkcionalnost::Rukovalac_informacionih_resursa::Pregled_povezanih_informacionih_resursa
+  class Brisanje_informacionih_resursa {
+  }
+  Rukovalac_informacionih_resursa +-right- Funkcionalnost::Rukovalac_informacionih_resursa::Brisanje_informacionih_resursa
+  class Mogucnost_sortiranja {
+  }
+  Rukovalac_informacionih_resursa +-right- Funkcionalnost::Rukovalac_informacionih_resursa::Mogucnost_sortiranja
+  
+  class Rukovanje_tipovima_informacionih_resursa <<requirement>> {
+  }
+  Rukovanje_tipovima_informacionih_resursa .up...> Funkcionalnost::Administracija_pristupa_informacionih_resursa
+  Rukovanje_tipovima_informacionih_resursa .up...> Funkcionalnost::Izmene_i_brisanje_razlicitih_tipova_informacionih_resursa
+  Rukovanje_tipovima_informacionih_resursa .up...> Funkcionalnost::Rukovanje_povezanim_informacionim_resursom
+  Rukovanje_tipovima_informacionih_resursa .up...> Funkcionalnost::Rukovanje_pojedinacnim_informacionim_resursom
+  Rukovanje_tipovima_informacionih_resursa .up...> Funkcionalnost::Kreiranje_razlicitih_tipova_informacionih_resursa
+  Rukovanje_tipovima_informacionih_resursa .up...> Funkcionalnost::Rukovanje_pojedinacnim_informacionim_resursom
+  Rukovanje_tipovima_informacionih_resursa .up...> Funkcionalnost::Rukovanje_povezanim_informacionim_resursom
+  Rukovanje_tipovima_informacionih_resursa .up...> Funkcionalnost::Izmene_i_brisanje_razlicitih_tipova_informacionih_resursa
+  Rukovanje_tipovima_informacionih_resursa .up...> Funkcionalnost::Administracija_pristupa_informacionih_resursa
+  Rukovanje_tipovima_informacionih_resursa .up...> Funkcionalnost::Izmene_i_brisanje_razlicitih_tipova_informacionih_resursa
+  
+  class Korisnik <<actor>> {
+  }
+  
+  class Pretraga_razlicitih_tipova_informacionih_resursa <<requirement>> {
+  }
+  
+  class Rukovanje_povezanim_informacionim_resursom <<requirement>> {
+  }
+}
+
+@enduml
